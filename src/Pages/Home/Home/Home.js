@@ -3,7 +3,6 @@ import {
   
     Switch,
     Route,
-    Link,
    useRouteMatch,
     NavLink
   } from "react-router-dom";
@@ -11,6 +10,7 @@ import Banner from '../Banner/Banner';
 import Breakfast from '../Breakfast/Breakfast';
 import Dinner from '../Dinner/Dinner';
 import Lunch from '../Lunch/Lunch';
+import './StyleNav.css';
 
 const Home = () => {
     let { path, url } = useRouteMatch();
@@ -19,15 +19,15 @@ const Home = () => {
             <Banner></Banner>
             <div className=" category-section ">
       <div className=" category-section d-flex justify-content-center h">
-        <NavLink to={`${url}/breakfast`} className="category-link">
+        <NavLink to='/home/breakfast' className="category-link">
           {" "}
           Breakfast
         </NavLink>
-        <NavLink to={`${url}/lunch`} className="category-link">
+        <NavLink to='/home/lunch' className="category-link">
           {" "}
           Lunch
         </NavLink>
-        <NavLink to={`${url}/dinner`} className="category-link">
+        <NavLink to='/home/dinner' className="category-link">
           {" "}
           Dinner
         </NavLink>
@@ -40,13 +40,13 @@ const Home = () => {
             <Route exact path={path}>
           <Breakfast></Breakfast>
         </Route>
-        <Route exact path={`${path}/breakfast`}>
+        <Route exact path='/home/breakfast'>
           <Breakfast></Breakfast>
         </Route>
-        <Route exact path={`${path}/lunch`}>
+        <Route exact path='/home/lunch' >
           <Lunch></Lunch>
         </Route>
-        <Route exact path={`${path}/dinner`}>
+        <Route exact path='/home/dinner' >
           <Dinner></Dinner>
         </Route>
         </Switch>

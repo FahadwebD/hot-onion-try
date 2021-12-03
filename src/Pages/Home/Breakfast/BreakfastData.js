@@ -7,21 +7,25 @@ import './BreakfastDesign.css'
 const BreakfastData = ({b}) => {
    console.log(b)
   
-   const {name , price ,image} = b
+   const {name , price ,image , description,id} = b
+   const url = `/details/${id}`
 return (
     <div>
+        <Link to={url} style={{ textDecoration: 'none'}}>
         <div className="cards">
         <div className="card-content">
-            <div className="card-body"> <img style={{height:100}}  className="img img-fluid" src={image} alt=''/>
+            <div className="card-body"> <img style={{height:'200px' , width:'60%'}}  className="img img-fluid" src={image} alt=''/>
                 <div className="shadow"></div>
-                <div className="card-title">{name}</div>
+                <div className="card-title text-dark ">{name}</div>
                 <div className="card-subtitle">
-                    <p> <small className="text-muted">{price}</small> </p>
+                    <p> <small className="text-muted">{description.slice(0,150)
+}...</small> </p>
                 </div>
-                <Link to='/details'><Button style={{backgroundColor:'#8dd1fe' , color:'dark' , border:'none'}}>Appointment</Button></Link>
+                <Button style={{backgroundColor:'white' , color:'black' , border:'none' , fontSize:'20px' , fontWeight:'bold'}}>${price}</Button>
             </div>
         </div>
     </div>
+    </Link>
     </div>
 );
 };

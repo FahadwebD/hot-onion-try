@@ -18,7 +18,7 @@ function App() {
         <Home></Home>
         
         </Route>
-        <Route exact path='/details'>
+        <Route exact path='/details/:mealsId'>
           <Details></Details>
         </Route>
       </Switch>

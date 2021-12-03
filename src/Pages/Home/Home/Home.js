@@ -25,17 +25,17 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div className=" category-section ">
+            <div className=" category-section mt-3 ">
       <div className=" category-section d-flex justify-content-center h">
-        <NavLink to='/home/breakfast' className="category-link">
+        <NavLink  to='/home/breakfast' activeClassName='cate' className="category-link">
           {" "}
           Breakfast
         </NavLink>
-        <NavLink to='/home/lunch' className="category-link">
+        <NavLink to='/home/lunch' activeClassName='cate' className="category-link">
           {" "}
           Lunch
         </NavLink>
-        <NavLink to='/home/dinner' className="category-link">
+        <NavLink to='/home/dinner' activeClassName='cate' className="category-link">
           {" "}
           Dinner
         </NavLink>

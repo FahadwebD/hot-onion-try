@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useLayoutEffect } from 'react';
 import {
   
     Switch,
     Route,
    useRouteMatch,
-    NavLink
+    NavLink,
+    useLocation 
   } from "react-router-dom";
 
 import Banner from '../Banner/Banner';
@@ -16,10 +17,12 @@ import './StyleNav.css';
 const Home = () => {
     let { path, url } = useRouteMatch();
 
-
+    const location = useLocation();
    
 
-    
+    useLayoutEffect(() => {
+      window.scrollTo(10, 10);
+    }, [location.pathname]);
 
 
     return (

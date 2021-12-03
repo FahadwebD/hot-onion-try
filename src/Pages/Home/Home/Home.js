@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   
     Switch,
@@ -6,6 +6,7 @@ import {
    useRouteMatch,
     NavLink
   } from "react-router-dom";
+
 import Banner from '../Banner/Banner';
 import Breakfast from '../Breakfast/Breakfast';
 import Dinner from '../Dinner/Dinner';
@@ -14,6 +15,13 @@ import './StyleNav.css';
 
 const Home = () => {
     let { path, url } = useRouteMatch();
+
+
+   
+
+    
+
+
     return (
         <div>
             <Banner></Banner>

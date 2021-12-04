@@ -17,17 +17,35 @@ const Details = () => {
     const element = <FontAwesomeIcon icon={faCartPlus} />
     const {mealsId} = useParams();
     const [food] = useMeals();
-    console.log(mealsId)
+    const [detail , setDetail] = useState({});
+    const {name , price , description , image} = detail;
+   
+
   
+  const addToCart =()=>{
+    let  total = price*count
+    console.log(total)
+    const ordered = {
+      item: name,
+      itemPrice:total,
+      report:'pending'
+    
+  }
+  console.log(ordered)
+  }
+
+
+
    const increase = ()=>{
        setCount(count+1)
+       
    }
    const decrease =()=>{
        if(count>1){
            setCount(count-1)
        }
    }
-    const [detail , setDetail] = useState({});
+    
     useEffect(()=>{
   
         if (food.length){
@@ -53,11 +71,11 @@ const Details = () => {
 
     <div className='d-flex flex-column justify-content-start align-items-start'>
     <div className='d-flex flex-column justify-content-start align-items-start'>
-        <h1>{detail.name}</h1>
+        <h1>{name}</h1>
         <br/>
-        <i className='text-muted mb-2'>{detail.description}</i>
+        <i className='text-muted mb-2'>{description}</i>
        <div className='d-flex '>
-       <h2>${detail.price}</h2><div className="input-stepper ms-4">
+       <h2>${price}</h2><div className="input-stepper ms-4">
   <button onClick={decrease} className="minus">-</button>
   <input type="text" value={count} />
   <button onClick={increase} className="plus">+</button>
@@ -65,7 +83,7 @@ const Details = () => {
        </div>
         </div>
         <div className='mt-5'>
-        <button style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white'}}>
+        <button onClick={addToCart} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white'}}>
       {element}<span style={{marginLeft:'10px'}}>add</span>
     </button>
         </div>
@@ -96,10 +114,10 @@ const Details = () => {
       onSlideChange={() => console.log("slide change")}
       onSwiper={swiper => console.log(swiper)}
     >
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}    src={detail.image} alt="" /></SwiperSlide>
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={detail.image} alt="" /></SwiperSlide>
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={detail.image} alt="" /></SwiperSlide>
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={detail.image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}    src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={image} alt="" /></SwiperSlide>
     </Swiper>
           </div>
        </div >
@@ -110,7 +128,7 @@ const Details = () => {
 
     
     </Col>
-    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'90%' , width:'90%'}}  src={detail.image} alt='' /></Col>
+    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'90%' , width:'90%'}}  src={image} alt='' /></Col>
   </Row>
             </Container>
         </div>

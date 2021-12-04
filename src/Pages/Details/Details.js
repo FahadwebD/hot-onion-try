@@ -21,7 +21,13 @@ const Details = () => {
     const {name , price , description , image} = detail;
    
 
+   
+
+
+    
+
   
+
   const addToCart =()=>{
     let  total = price*count
     console.log(total)
@@ -75,10 +81,10 @@ const Details = () => {
         <br/>
         <i className='text-muted mb-2'>{description}</i>
        <div className='d-flex '>
-       <h2>${price}</h2><div className="input-stepper ms-4">
-  <button onClick={decrease} className="minus">-</button>
-  <input type="text" value={count} />
-  <button onClick={increase} className="plus">+</button>
+       <h2 id='dh'>${price}</h2><div className="input-stepper ms-4">
+  <button style={{color:'#f91944' , fontWeight:'bold'}} onClick={decrease} className="minus">-</button>
+  <input id='st' type="text" value={count} />
+  <button  style={{color:'#f91944' , fontWeight:'bold'}}  onClick={increase} className="plus">+</button>
 </div>
        </div>
         </div>

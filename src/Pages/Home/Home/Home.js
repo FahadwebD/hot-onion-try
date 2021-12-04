@@ -7,6 +7,7 @@ import {
     NavLink,
     useLocation 
   } from "react-router-dom";
+import Navbar from '../../Shared/Navbar/Navbar';
 
 import Banner from '../Banner/Banner';
 import Breakfast from '../Breakfast/Breakfast';
@@ -27,10 +28,11 @@ const Home = () => {
 
     return (
         <div>
+          <Navbar></Navbar>
             <Banner></Banner>
             <div className=" category-section mt-3 ">
       <div className=" category-section d-flex justify-content-center h">
-        <NavLink  to='/home/breakfast' activeClassName='cate' className="category-link">
+        <NavLink  to='/home/breakfast'  activeClassName='cate' className="category-link">
           {" "}
           Breakfast
         </NavLink>

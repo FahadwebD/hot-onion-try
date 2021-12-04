@@ -44,7 +44,7 @@
      color: #07c;
   }
   
-  .input-stepper input {
+  .input-stepper #st {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -52,8 +52,13 @@
     font-size: 20px;
     text-align: center;
     width: 36px;
+    padding: 0%;
+    background-color: white;
   }
-
+#dh{
+  color: black;
+  font-weight: bold;
+}
   @media only screen  and (max-width:688px){
     .d{
         display: flex;

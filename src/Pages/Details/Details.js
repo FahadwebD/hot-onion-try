@@ -10,6 +10,7 @@ import 'swiper/swiper.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Details.css'
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 SwiperCore.use([Navigation]);
 
 const Details = () => {
@@ -18,7 +19,8 @@ const Details = () => {
     const {mealsId} = useParams();
     const [food] = useMeals();
     const [detail , setDetail] = useState({});
-    const {name , price , description , image} = detail;
+    const [b, setB] = useState(false)
+    const {name , price , description , image, id} = detail;
    
 
    
@@ -26,7 +28,21 @@ const Details = () => {
 
     
 
-  
+
+
+useEffect(()=>{
+  const storedCart = getStoredCart();
+  console.log(storedCart)
+  for (const key in storedCart){
+    if(key==mealsId){
+    setCount(storedCart[key])
+    setB(true)
+    }
+    
+  }
+   
+},[mealsId])
+
 
   const addToCart =()=>{
     let  total = price*count
@@ -37,6 +53,7 @@ const Details = () => {
       report:'pending'
     
   }
+  addToDb(id,count)
   console.log(ordered)
   }
 
@@ -89,9 +106,11 @@ const Details = () => {
        </div>
         </div>
         <div className='mt-5'>
-        <button onClick={addToCart} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white'}}>
+        {b==true?<button onClick={addToCart} disabled style={{backgroundColor:'#fc8ca2',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' }}>
+      {element}<span style={{marginLeft:'10px'}}>Added</span>
+    </button>:<button onClick={addToCart} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white'}}>
       {element}<span style={{marginLeft:'10px'}}>add</span>
-    </button>
+    </button>}
         </div>
     </div>
 

@@ -7,7 +7,8 @@ import {
     NavLink,
     useLocation 
   } from "react-router-dom";
-import Navbar from '../../Shared/Navbar/Navbar';
+import Navs from '../../Shared/Navbar/Navs';
+
 
 import Banner from '../Banner/Banner';
 import Breakfast from '../Breakfast/Breakfast';
@@ -28,7 +29,7 @@ const Home = () => {
 
     return (
         <div>
-          <Navbar></Navbar>
+          <Navs></Navs>
             <Banner></Banner>
             <div className=" category-section mt-3 ">
       <div className=" category-section d-flex justify-content-center h">

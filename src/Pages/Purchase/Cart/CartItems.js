@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
+import useCart from '../../../hooks/useCart';
 import useMeals from '../../../hooks/useMeals';
-import { getStoredCart } from '../../../utilities/fakedb';
+import { addToDb, getStoredCart } from '../../../utilities/fakedb';
 import './Cart.css'
 const CartItems = ({data}) => {
    
     const {name , image , price , id } = data
     const [count , setCount] = useState(1)
-    const [detail , setDetail] = useState({});
+ 
     const [food] = useMeals()
 
     useEffect(()=>{
@@ -26,35 +27,8 @@ const CartItems = ({data}) => {
 
       let  total = price*count
    
-      const [ cart , setCart ] = useState([]);
-
-      useEffect(()=>{
-  
-          if(food.length){
-              const savedCarts = getStoredCart();
-              const storedCarts =[];
-  
-              for(const key in savedCarts){
-              const addedProduct = food.find(product => product.id == key)
-                      if(addedProduct){
-                          console.log(addedProduct)
-                      const totalPrice = savedCarts[key]*addedProduct.price;
-                       addedProduct.totalPrice = totalPrice;
-                      storedCarts.push(addedProduct)
-                  }
-                }
-                setCart(storedCarts)
-           }
-  
-         console.log(cart)
-  
-  
-      },[food])
-  
-
+    
       
-   
-     
       const increase = ()=>{
         setCount(count+1)
         
@@ -62,8 +36,15 @@ const CartItems = ({data}) => {
     const decrease =()=>{
         if(count>1){
             setCount(count-1)
+            
         }
     }
+    
+   
+     
+    useEffect(()=>{
+        addToDb(id,count)
+    },[count])
 
 
 

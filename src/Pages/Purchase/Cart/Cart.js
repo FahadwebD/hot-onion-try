@@ -4,6 +4,8 @@ import { getStoredCart } from '../../../utilities/fakedb';
 import CartItems from './CartItems';
 import './Cart.css'
 import { Row } from 'react-bootstrap';
+import Total from './Total';
+
 const Cart = () => {
    const [cartItem , setCartItem] = useState([])
    const [food] = useMeals()
@@ -11,7 +13,7 @@ const Cart = () => {
 
     useEffect(()=>{
         const storedCart = getStoredCart();
-  
+        console.log(storedCart)
         const savedCart =[]
         for (const key in storedCart){
           if(food.length){
@@ -24,7 +26,7 @@ const Cart = () => {
       },[food])
 
        
-
+console.log(cartItem)
 
     
     return (
@@ -38,6 +40,9 @@ const Cart = () => {
                 ></CartItems>)
             }
             </Row>
+            {
+                <Total cart={cartItem}></Total>
+            }
         </div>
     );
 };

@@ -9,7 +9,7 @@ import Total from './Total';
 const Cart = () => {
    const [cartItem , setCartItem] = useState([])
    const [food] = useMeals()
-
+   const [ carts , setCarts ] = useState([]);
 
     useEffect(()=>{
         const storedCart = getStoredCart();
@@ -28,6 +28,29 @@ const Cart = () => {
        
 console.log(cartItem)
 
+
+    useEffect(()=>{
+
+        if(food.length){
+            const savedCarts = getStoredCart();
+            const storedCarts =[];
+
+            for(const key in savedCarts){
+            const addedProduct = food.find(product => product.id == key)
+                    if(addedProduct){
+                        console.log(addedProduct)
+                    const totalPrice = savedCarts[key]*addedProduct.price;
+                     addedProduct.totalPrice = totalPrice;
+                    storedCarts.push(addedProduct)
+                }
+              }
+              setCarts(storedCarts)
+         }
+
+      
+
+
+    },[food])
     
     return (
         <div>
@@ -41,7 +64,7 @@ console.log(cartItem)
             }
             </Row>
             {
-                <Total cart={cartItem}></Total>
+                <Total cart={carts}></Total>
             }
         </div>
     );

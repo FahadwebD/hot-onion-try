@@ -31,12 +31,14 @@ const CartItems = ({data}) => {
       
       const increase = ()=>{
         setCount(count+1)
-        
+    
+            window.location.reload();
+         
     }
     const decrease =()=>{
         if(count>1){
             setCount(count-1)
-            
+            window.location.reload();
         }
     }
     

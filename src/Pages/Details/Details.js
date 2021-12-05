@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Details.css'
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import Navs from '../Shared/Navbar/Navs';
 SwiperCore.use([Navigation]);
 
 const Details = () => {
@@ -80,6 +81,8 @@ useEffect(()=>{
         
       } ,[mealsId ,food])
     return (
+      <>
+      <Navs></Navs>
         <div >
             <Container>
             <Row className='mt-5 order'>
@@ -157,6 +160,7 @@ useEffect(()=>{
   </Row>
             </Container>
         </div>
+        </>
     );
 };
 

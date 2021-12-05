@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
 import useCart from '../../../hooks/useCart';
 import useMeals from '../../../hooks/useMeals';
-import { addToDb, getStoredCart } from '../../../utilities/fakedb';
+import { addToDb, deleteFromDb, getStoredCart } from '../../../utilities/fakedb';
 import './Cart.css'
-const CartItems = ({data}) => {
+const CartItems = ({data , info, handleRemove}) => {
    
     const {name , image , price , id } = data
     const [count , setCount] = useState(1)
@@ -35,11 +35,17 @@ const CartItems = ({data}) => {
             window.location.reload();
          
     }
-    const decrease =()=>{
+    const decrease =(id)=>{
         if(count>1){
+            
             setCount(count-1)
-            window.location.reload();
+            
+           
         }
+        else{
+            handleRemove(id)
+        }
+        window.location.reload();
     }
     
    
@@ -60,11 +66,11 @@ const CartItems = ({data}) => {
                 <h5 style={{color:'red'}}>${total.toFixed(2)}</h5>
                 </Col>
                 <Col xs={4} md={4}>
-            <div className="input-steppers ">
-  <button style={{color:'#f91944'}} className="minus"  onClick={decrease}>-</button>
+            {info?.area?`${count} orderd`:<div className="input-steppers ">
+  <button style={{color:'#f91944'}} className="minus"  onClick={()=>decrease(id)}>-</button>
   <input id='sb' type="text" value={count} />
   <button  style={{color:'#f91944' }} className="plus" onClick={increase}>+</button>
-</div>
+</div>}
 </Col>
         </div>
     );

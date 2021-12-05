@@ -3,8 +3,8 @@ import useCart from '../../../hooks/useCart';
 import useMeals from '../../../hooks/useMeals';
 import { getStoredCart } from '../../../utilities/fakedb';
 
-const Total = ({cart}) => {
-    console.log(cart)
+const Total = ({cart , info}) => {
+    
   
     const[food] = useMeals()
     const [ carts , setCarts ] = useState([]);
@@ -18,7 +18,7 @@ const Total = ({cart}) => {
             for(const key in savedCarts){
             const addedProduct = food.find(product => product.id == key)
                     if(addedProduct){
-                        console.log(addedProduct)
+                       
                     const totalPrice = savedCarts[key]*addedProduct.price;
                      addedProduct.totalPrice = totalPrice;
                     storedCarts.push(addedProduct)
@@ -31,7 +31,7 @@ const Total = ({cart}) => {
 
 
     },[food])
-    console.log(carts)
+   
 
   
     let total = 0;
@@ -44,9 +44,7 @@ const Total = ({cart}) => {
     const tax = (total + shipping) * 0.10;
     const grandTotal = total + shipping + tax;
 
-console.log(total)
-   
-console.log(grandTotal)
+
 
 
     return (

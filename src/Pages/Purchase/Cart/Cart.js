@@ -5,19 +5,24 @@ import CartItems from './CartItems';
 import './Cart.css'
 import { Row } from 'react-bootstrap';
 import Total from './Total';
+import { Link } from 'react-router-dom';
 
 const Cart = ({info}) => {
    const [cartItem , setCartItem] = useState([])
    const [food] = useMeals()
    const [ carts , setCarts ] = useState([]);
-
-    useEffect(()=>{
+   const [t, setT]= useState([])
+    
+   
+   
+   useEffect(()=>{
         const storedCart = getStoredCart();
        
         const savedCart =[]
         for (const key in storedCart){
           if(food.length){
             const newP = food.find(service => service.id == key)
+
             savedCart.push(newP)
           }
         
@@ -34,7 +39,7 @@ const Cart = ({info}) => {
         if(food.length){
             const savedCarts = getStoredCart();
             const storedCarts =[];
-
+             console.log(savedCarts)
             for(const key in savedCarts){
             const addedProduct = food.find(product => product.id == key)
                     if(addedProduct){
@@ -51,11 +56,18 @@ const Cart = ({info}) => {
 
 
     },[food])
+
     const handleRemove = id =>{
         const newCart = cartItem.filter(product=> product.id !== id )
          setCartItem(newCart)
          deleteFromDb(id)
      }
+
+
+     const handle= p =>{
+       setT(p)
+     }
+console.log(t)
     return (
         <div>
             <h1>This {cartItem.length}</h1>
@@ -65,6 +77,7 @@ const Cart = ({info}) => {
                 data={c}
                 info={info}
                 handleRemove={handleRemove}
+                handle={handle}
                 ></CartItems>)
             }
             </Row>
@@ -76,7 +89,7 @@ const Cart = ({info}) => {
                 ></Total>
             }
             <div>
-           {info.area? <button  style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 100px', color:'white'}}>Place Order</button>: <button disabled style={{backgroundColor:'#cecece',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 100px', color:'white'}}>Place Order</button>}
+           {info.area?<Link to='/order'><button  style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 100px', color:'white'}}>Place Order</button></Link>: <button disabled style={{backgroundColor:'#cecece',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 100px', color:'white'}}>Place Order</button>}
             </div>
         </div>
     );

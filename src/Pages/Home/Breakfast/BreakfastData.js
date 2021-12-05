@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './BreakfastDesign.css'
 
 
 const BreakfastData = ({b}) => {
-   console.log(b)
+  
   
    const {name , price ,image , description,id} = b
    const url = `/details/${id}`

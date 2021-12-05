@@ -1,12 +1,11 @@
 import React from 'react';
-import { Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+
 import useMeals from '../../../hooks/useMeals';
 import BreakfastData from './BreakfastData';
 import './BreakfastDesign.css'
 
 const Breakfast = () => {
-    const [food , breakfast , lunch , dinner] =useMeals()
+    const [ breakfast ] =useMeals()
     
     return (
         <div className='mt-5'>

@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Signin/Register';
 import Category from './Pages/Home/Category/Category';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
+import OrderComplete from './Pages/OrderComplete/OrderComplete/OrderComplete';
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route exact path='/purchase'>
           <Purchase></Purchase>
+          </Route>
+          <Route exact path='/order'>
+          <OrderComplete></OrderComplete>
           </Route>
         <Route exact path='/login'>
           <Login></Login>

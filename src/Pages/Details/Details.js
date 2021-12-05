@@ -48,14 +48,8 @@ useEffect(()=>{
   const addToCart =()=>{
     let  total = price*count
     console.log(total)
-    const ordered = {
-      item: name,
-      itemPrice:total,
-      report:'pending'
-    
-  }
   addToDb(id,count)
-  console.log(ordered)
+  
   }
 
 

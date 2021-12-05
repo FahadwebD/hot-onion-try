@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Cart from '../Cart/Cart';
 import { set, useForm } from "react-hook-form";
 import Navs from '../../Shared/Navbar/Navs';
+import useInfo from '../../../hooks/useInfo';
 
 const Purchase = () => {
+  const [dis , setDis] = useState(false)
+  console.log(dis)
+  const [info , setInfo , register, handleSubmit , onSubmit] = useInfo()
 
-  const [info, setInfo]= useState({})
- const [dis , setDis] = useState(false)
- console.log(dis)
-  const { register, handleSubmit } = useForm();
-      const onSubmit = data => setInfo(data);
 
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("info", JSON.stringify(info));
+  }, [info]);
 
       const sel=()=>{
         setDis(true)
@@ -25,7 +28,7 @@ const Purchase = () => {
 
             <Container>
   <Row>
-    <Col style={{backgroundColor:'white' , paddingTop:'20px' , marginTop:'40px'}} md={4}> <div>
+    <Col style={{backgroundColor:'white' , paddingTop:'20px' , marginTop:'40px' , marginRight:'300px'}} lg={4 ,{order:'1'}} xs={4 ,{order:'2'}} md={4} > <div>
       <h4 >Edit You Details</h4>
       <hr/>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,8 +39,10 @@ const Purchase = () => {
       <input style={{width:'100%', backgroundColor:'whitesmoke' , border:'none' , padding:'10px' , marginBottom:'20px'}}  {...register("instruction", )} placeholder='Add delivery instructor' />
      {info?.area? <input  disabled type="submit" style={{backgroundColor:'#cecece',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 100px', color:'white'}}/>: <input  onClick={sel} type="submit" style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 100px', color:'white'}}/>}
     </form>
-        </div></Col>
-    <Col  md={{ span: 4, offset: 4 }}><Cart info={info}></Cart></Col>
+        </div>
+     
+        </Col>
+    <Col  lg={4 ,{order:'2'}} xs={4 ,{order:'1'}} md={4} ><Cart info={info}></Cart></Col>
   </Row>
 </Container>
         </div>

@@ -2,7 +2,8 @@
 
 
 
-const addToDb = (id , count) => {
+const addToDb = (id , count ) => {
+
     const exists = getDb();
     let shopping_cart = {};
     if (!exists) {
@@ -22,7 +23,7 @@ const addToDb = (id , count) => {
   }
   
   const getDb = () => localStorage.getItem('shopping_cart');
-  
+
   const updateDb = cart => {
     localStorage.setItem('shopping_cart', JSON.stringify(cart));
   }

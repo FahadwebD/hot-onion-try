@@ -1,41 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import useCart from '../../../hooks/useCart';
-import useMeals from '../../../hooks/useMeals';
-import { getStoredCart } from '../../../utilities/fakedb';
+import React from 'react';
+
 
 const Total = ({cart , info}) => {
     
+  console.log(cart)
   
-    const[food] = useMeals()
-    const [ carts , setCarts ] = useState([]);
-
-    useEffect(()=>{
-
-        if(food.length){
-            const savedCarts = getStoredCart();
-            const storedCarts =[];
-
-            for(const key in savedCarts){
-            const addedProduct = food.find(product => product.id == key)
-                    if(addedProduct){
-                       
-                    const totalPrice = savedCarts[key]*addedProduct.price;
-                     addedProduct.totalPrice = totalPrice;
-                    storedCarts.push(addedProduct)
-                }
-              }
-              setCarts(storedCarts)
-         }
-
-      
-
-
-    },[food])
    
 
   
     let total = 0;
-    for (const product of carts) {
+    for (const product of cart) {
         total = total + product.totalPrice 
        
     }
@@ -50,7 +24,7 @@ const Total = ({cart , info}) => {
     return (
         <div>
             <div className='d-flex justify-content-between mb-2'>
-            <h6>Subtotal.{carts.length} item</h6><h6>${total.toFixed(2)}</h6>
+            <h6>Subtotal.{cart?.length} item</h6><h6>${total.toFixed(2)}</h6>
         </div>
         <div className='d-flex justify-content-between mb-2'>
             <h6>Tax</h6><h6>${tax.toFixed(2)}</h6>

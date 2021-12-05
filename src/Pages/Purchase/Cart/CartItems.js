@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
-import useCart from '../../../hooks/useCart';
-import useMeals from '../../../hooks/useMeals';
-import { addToDb, deleteFromDb, getStoredCart } from '../../../utilities/fakedb';
+import { addToDb,  getStoredCart } from '../../../utilities/fakedb';
 import './Cart.css'
-const CartItems = ({data , info, handleRemove}) => {
+const CartItems = ({data , info, handleRemove ,handle}) => {
    
     const {name , image , price , id } = data
     const [count , setCount] = useState(1)
- 
-    const [food] = useMeals()
+
 
     useEffect(()=>{
         const storedCart = getStoredCart();
@@ -21,7 +18,7 @@ const CartItems = ({data , info, handleRemove}) => {
          }
         }
          
-      },[data])
+      },[])
 
      
 
@@ -52,7 +49,8 @@ const CartItems = ({data , info, handleRemove}) => {
      
     useEffect(()=>{
         addToDb(id,count)
-    },[count])
+         handle({total , id})
+    },[count,total])
 
 
 

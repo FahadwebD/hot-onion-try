@@ -30,10 +30,10 @@ const BottomNav = () => {
     {bag}
     <span className="nav__text">cart</span>
   </NavLink>
-  <a href="/" className="nav__link">
+  <Link to="/login" className="nav__link">
    {sign}
     <span className="nav__text">Sign In</span>
-  </a>
+  </Link>
 </nav>
         </div>
     );

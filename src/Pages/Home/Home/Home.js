@@ -5,6 +5,7 @@ import Banner from '../Banner/Banner';
 import './StyleNav.css'
 import Category from '../Category/Category';
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
+import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <Category></Category>
             <WhyChooseUs/>
+            <Footer/>
             <div className='mobileNav'><BottomNav></BottomNav></div>
             
     </div>

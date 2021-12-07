@@ -271,8 +271,8 @@ a {
   } 
   
   #icon {
-    width:48%;
-    height: 60px;
+    width:50%;
+    height: 50px;
     margin: 20px;
   }
   #bt{
@@ -288,11 +288,21 @@ a {
          border:none ;
          padding:10px 110px
       }
+      #icon {
+        width:70%;
+        height: 50px;
+        margin: 20px;
+      }
 }
 @media only screen  and (min-width:689px) and (max-width:990px){
     #bt{
         background-color:#f91944 ;
          border:none ;
          padding:10px 110px
+      }
+      #icon {
+        width:70%;
+        height: 50px;
+        margin: 20px;
       }
 }

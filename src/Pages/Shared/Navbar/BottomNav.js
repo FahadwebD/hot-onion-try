@@ -32,7 +32,7 @@ const BottomNav = () => {
   </NavLink>
   <Link to="/login" className="nav__link">
    {sign}
-    <span className="nav__text">Sign In</span>
+    <span className="nav__text">Sign</span>
   </Link>
 </nav>
         </div>

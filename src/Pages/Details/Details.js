@@ -77,7 +77,7 @@ useEffect(()=>{
       } ,[mealsId ,food])
     return (
       <>
-     <div className='WebsiteNav'><Navs></Navs></div>
+     <div className='WebsiteNav sticky-top'><Navs></Navs></div>
         <div >
             <Container>
             <Row className='mt-5 order'>
@@ -153,7 +153,7 @@ useEffect(()=>{
 
     
     </Col>
-    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'90%' , width:'90%'}}  src={image} alt='' /></Col>
+    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'80%' , width:'100%'}}  src={image} alt='' /></Col>
   </Row>
             </Container>
         </div>

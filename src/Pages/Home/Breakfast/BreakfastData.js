@@ -12,7 +12,7 @@ const BreakfastData = ({b}) => {
 return (
     <div>
         <Link to={url} style={{ textDecoration: 'none'}}>
-        <div className="cards">
+        <div className="cards ">
         <div className="card-content">
             <div className="card-body"> <img style={{height:'100%' , width:'100%'}}  className="img img-fluid" src={image} alt=''/>
                 <div className="shadow"></div>

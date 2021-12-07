@@ -3,7 +3,7 @@ import { getStoredCart } from "../utilities/fakedb";
 import useMeals from "./useMeals";
 
 
-const useCart = c =>{
+const useCart = () =>{
 
   const information =(JSON.parse(localStorage.getItem('info')))
   const item =(JSON.parse(localStorage.getItem('shopping_cart')))
@@ -54,7 +54,7 @@ const overAll ={
   
 }
 
-  return [ total , shipping , grandTotal , cartItem , grandTotal , tax , information,overAll]
+  return [ cartItem , grandTotal , tax , information,overAll]
 }
 
 export default useCart;

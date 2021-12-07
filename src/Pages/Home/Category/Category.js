@@ -29,15 +29,15 @@ const Category = () => {
           
             <div className=" category-section ">
       <div className=" category-section d-flex justify-content-center h">
-        <NavLink  to='/home/breakfast'  activeClassName='cate' className="category-link" style={{fontSize:'6vw'}}>
+        <NavLink  to='/home/breakfast'  activeClassName='cate' className="category-link" >
           {" "}
           Breakfast
         </NavLink>
-        <NavLink to='/home/lunch' activeClassName='cate' className="category-link" style={{fontSize:'6vw'}}>
+        <NavLink to='/home/lunch' activeClassName='cate' className="category-link" >
           {" "}
           Lunch
         </NavLink>
-        <NavLink to='/home/dinner' activeClassName='cate' className="category-link" style={{fontSize:'6vw'}}>
+        <NavLink to='/home/dinner' activeClassName='cate' className="category-link">
           {" "}
           Dinner
         </NavLink>

@@ -16,7 +16,7 @@ const useMeals = () =>{
     useEffect(()=>{
        
         if(food.length){
-         const filterdBreakfast =food.filter(f=> f.c == 'b')
+         const filterdBreakfast =food.filter(f=> f.c === 'b')
          setBreakfast(filterdBreakfast)
         }
 
@@ -24,7 +24,7 @@ const useMeals = () =>{
     useEffect(()=>{
        
         if(food.length){
-         const filterdLunch=food.filter(f=> f.c == 'lunch')
+         const filterdLunch=food.filter(f=> f.c === 'lunch')
          setLunch(filterdLunch)
         }
 
@@ -32,7 +32,7 @@ const useMeals = () =>{
     useEffect(()=>{
        
         if(food.length){
-         const filterdDinner=food.filter(f=> f.c == 'd')
+         const filterdDinner=food.filter(f=> f.c === 'd')
          setDinner(filterdDinner)
         }
 

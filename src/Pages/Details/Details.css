@@ -59,12 +59,24 @@
   color: black;
   font-weight: bold;
 }
+.mobileNav{
+  visibility: hidden;
+}
+.WebsiteNav{
+  visibility: visible;
+}
   @media only screen  and (max-width:688px){
     .d{
         display: flex;
         flex-direction:column-reverse;
         align-items: center;
   
+    }
+    .mobileNav{
+      visibility: visible;
+    }
+    .WebsiteNav{
+      visibility: hidden;
     }
     
 }
@@ -75,5 +87,11 @@
         flex-direction:column-reverse;
         align-items: center;
   
+    }
+    .mobileNav{
+      visibility: visible;
+    }
+    .WebsiteNav{
+      visibility: hidden;
     }
 }

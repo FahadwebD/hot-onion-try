@@ -12,6 +12,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import './Details.css'
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Navs from '../Shared/Navbar/Navs';
+import BottomNav from '../Shared/Navbar/BottomNav';
 SwiperCore.use([Navigation]);
 
 const Details = () => {
@@ -76,7 +77,7 @@ useEffect(()=>{
       } ,[mealsId ,food])
     return (
       <>
-      <Navs></Navs>
+     <div className='WebsiteNav'><Navs></Navs></div>
         <div >
             <Container>
             <Row className='mt-5 order'>
@@ -90,10 +91,11 @@ useEffect(()=>{
 
 
     <div className='d-flex flex-column justify-content-start align-items-start'>
-    <div className='d-flex flex-column justify-content-start align-items-start'>
-        <h1>{name}</h1>
+    <h1>{name}</h1>
         <br/>
         <i className='text-muted mb-2'>{description}</i>
+    <div className='d-flex flex-column justify-content-start align-items-start ' >
+        
        <div className='d-flex '>
        <h2 id='dh'>${price}</h2><div className="input-stepper ms-4">
   <button style={{color:'#f91944' , fontWeight:'bold'}} onClick={decrease} className="minus">-</button>
@@ -101,14 +103,15 @@ useEffect(()=>{
   <button  style={{color:'#f91944' , fontWeight:'bold'}}  onClick={increase} className="plus">+</button>
 </div>
        </div>
-        </div>
-        <div className='mt-5'>
-        {b==true?<button onClick={addToCart} disabled style={{backgroundColor:'#fc8ca2',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' }}>
+       <div className='mt-5'>
+        {b==true?<button onClick={addToCart} disabled style={{backgroundColor:'#fc8ca2',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' , marginBottom:'70px' }}>
       {element}<span style={{marginLeft:'10px'}}>Added</span>
-    </button>:<button onClick={addToCart} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white'}}>
+    </button>:<button onClick={addToCart} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' , marginBottom:'70px' , marginTop:'-180px'}}>
       {element}<span style={{marginLeft:'10px'}}>add</span>
     </button>}
         </div>
+        </div>
+       
     </div>
 
 
@@ -154,6 +157,7 @@ useEffect(()=>{
   </Row>
             </Container>
         </div>
+        <div className='mobileNav'><BottomNav></BottomNav></div>
         </>
     );
 };

@@ -29,7 +29,7 @@ const BottomNav = () => {
     {bag}
     <span className="nav__text">cart</span>
   </NavLink>
-  <a href="#" className="nav__link">
+  <a href="/" className="nav__link">
    {user}
     <span className="nav__text">account</span>
   </a>

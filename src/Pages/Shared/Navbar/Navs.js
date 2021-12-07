@@ -6,7 +6,7 @@ import logo from '../../../images/logo2.png'
 
 const Navs = () => {
     return (
-        <div>
+        <div className='sticky-top bg-white'>
    <Navbar>
   <Container>
     <Navbar.Brand as={Link} to="/home"><img style={{height:'50px' , width:'150px' }} src={logo} alt='' /></Navbar.Brand>

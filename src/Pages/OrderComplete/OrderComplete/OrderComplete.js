@@ -79,10 +79,11 @@ const OrderComplete = () => {
             backendImport.map(a => <OrderDetail data={a}
             ></OrderDetail>)
           }
+           <button onClick={clearAll}>Payment</button>
          </div>}
         
             <div><h1>{information?.name}</h1></div>
-            <button onClick={clearAll}>Payment</button>
+           
         </div>
     );
 };

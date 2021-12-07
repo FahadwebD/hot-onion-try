@@ -20,3 +20,29 @@
     
     
   }
+  .mobileNav{
+    visibility: hidden;
+  }
+  .WebsiteNav{
+    visibility: visible;
+  }
+
+  @media only screen  and (max-width:688px){
+    
+  .mobileNav{
+    visibility: visible;
+  }
+  .WebsiteNav{
+    visibility: hidden;
+  }
+}
+@media only screen  and (min-width:689px) and (max-width:990px){
+
+   .mobileNav{
+    visibility: visible;
+  }
+  .WebsiteNav{
+    visibility: hidden;
+  }
+    
+}

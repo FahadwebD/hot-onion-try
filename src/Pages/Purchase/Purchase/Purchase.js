@@ -4,6 +4,7 @@ import Cart from '../Cart/Cart';
 import { set, useForm } from "react-hook-form";
 import Navs from '../../Shared/Navbar/Navs';
 import useInfo from '../../../hooks/useInfo';
+import BottomNav from '../../Shared/Navbar/BottomNav';
 
 const Purchase = () => {
   const [dis , setDis] = useState(false)
@@ -21,8 +22,8 @@ const Purchase = () => {
       }
     return (
       <>
-      <Navs></Navs>
-        <div className='mt-4 purch '>
+    <div className='WebsiteNav'><Navs></Navs></div>
+        <div className=' purch '>
             
             
 
@@ -45,6 +46,7 @@ const Purchase = () => {
     <Col  lg={4 ,{order:'2'}} xs={4 ,{order:'1'}} md={4} ><Cart info={info}></Cart></Col>
   </Row>
 </Container>
+<div className='mobileNav'><BottomNav></BottomNav></div>
         </div>
         </>
     );

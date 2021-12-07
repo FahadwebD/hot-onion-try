@@ -7,13 +7,14 @@ import { faHome} from '@fortawesome/free-solid-svg-icons'
 import { faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import { faShoppingBag} from '@fortawesome/free-solid-svg-icons'
 import { faThLarge} from '@fortawesome/free-solid-svg-icons'
-
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import'./BottomNav.css'
 const BottomNav = () => {
     const home = <FontAwesomeIcon style={{fontSize:'7vw'}} icon={faHome} />
     const user = <FontAwesomeIcon style={{fontSize:'7vw'}} icon={faUserCircle} />
     const bag = <FontAwesomeIcon style={{fontSize:'7vw'}} icon={faShoppingBag} />
     const dash = <FontAwesomeIcon style={{fontSize:'7vw'}} icon={faThLarge} />
+    const sign = <FontAwesomeIcon style={{fontSize:'7vw'}} icon={faSignInAlt} />
     return (
         <div className='fixed-bottom bg-white'>
   <nav className="nav">
@@ -30,8 +31,8 @@ const BottomNav = () => {
     <span className="nav__text">cart</span>
   </NavLink>
   <a href="/" className="nav__link">
-   {user}
-    <span className="nav__text">account</span>
+   {sign}
+    <span className="nav__text">Sign In</span>
   </a>
 </nav>
         </div>

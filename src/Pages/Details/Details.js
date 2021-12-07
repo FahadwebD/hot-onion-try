@@ -80,7 +80,7 @@ useEffect(()=>{
      <div className='WebsiteNav sticky-top'><Navs></Navs></div>
         <div >
             <Container>
-            <Row className='mt-5 order'>
+            <Row className=' order'>
     <Col lg={6 ,{order:'1'}} xs={12 , {order:'2'}} md={6} >
 
 
@@ -139,10 +139,10 @@ useEffect(()=>{
       onSlideChange={() => console.log("slide change")}
       onSwiper={swiper => console.log(swiper)}
     >
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}    src={image} alt="" /></SwiperSlide>
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={image} alt="" /></SwiperSlide>
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={image} alt="" /></SwiperSlide>
-      <SwiperSlide><img  style={{height:'150px' , width:'150px'}}   src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px' , padding:'3px'}}    src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px' , padding:'3px'}}   src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px' , padding:'3px'}}   src={image} alt="" /></SwiperSlide>
+      <SwiperSlide><img  style={{height:'150px' , width:'150px' , padding:'3px'}}   src={image} alt="" /></SwiperSlide>
     </Swiper>
           </div>
        </div >
@@ -153,7 +153,7 @@ useEffect(()=>{
 
     
     </Col>
-    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'80%' , width:'100%'}}  src={image} alt='' /></Col>
+    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'80%' , width:'100%' , padding:'5px'}}  src={image} alt='' /></Col>
   </Row>
             </Container>
         </div>

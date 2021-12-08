@@ -9,7 +9,7 @@ import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
   return (
-    <div>
+    <div id='home'>
             <div className='WebsiteNav sticky-top'><Navs></Navs></div>
             <Banner></Banner>
             <Category></Category>

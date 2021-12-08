@@ -1,13 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './BreakfastDesign.css'
 
-
-const BreakfastData = ({b}) => {
+const FoodCategory = ({name , price ,image , description,id}) => {
   
   
-   const {name , price ,image , description,id} = b
+
    const url = `/details/${id}`
 return (
     <div>
@@ -30,4 +28,4 @@ return (
 );
 };
 
-export default BreakfastData;
+export default FoodCategory;

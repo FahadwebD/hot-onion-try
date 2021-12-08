@@ -1,26 +1,5 @@
-.category-link {
-    margin: 0 10px;
-    text-decoration: none;
-    color: rgb(20, 20, 20);
-    display: inline-block;
-    font-weight: 600;
-    font-size: 25px;
-    
-  }
-  .category-link:active {
-    color: red;
-  }
-  .cate{
-    color:#f91944;
-    border-bottom: 2px solid #f91944;
-    
-  }
-  .category-link:hover {
-    color: rgb(202, 31, 31);
-    
-    
-  }
-  .mobileNav{
+
+.mobileNav{
     visibility: hidden;
   }
   .WebsiteNav{

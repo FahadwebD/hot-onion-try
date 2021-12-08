@@ -1,69 +1,34 @@
-import React, { useEffect, useState , useLayoutEffect } from 'react';
-import {
-  
-    Switch,
-    Route,
-   useRouteMatch,
-    NavLink,
-    useLocation 
-  } from "react-router-dom";
-
-import Breakfast from '../Breakfast/Breakfast';
-import Dinner from '../Dinner/Dinner';
-import Lunch from '../Lunch/Lunch';
-import '../Home/StyleNav.css'
-
+import React, {  useState  } from 'react';
+import useMeals from '../../../hooks/useMeals';
+import '../FoodCase/FoodCase.css'
+import FoodCategory from '../FoodCase/FoodCategory';
 const Category = () => {
-    let { path, url } = useRouteMatch();
+const [menuTab, setMenuTab] = useState('b')
+const [food] = useMeals()
 
-    const location = useLocation();
-   
 
-    useLayoutEffect(() => {
-      window.scrollTo(10, 10);
-    }, [location.pathname]);
+
+
+    const handleMenuTabs = (type) => {
+        setMenuTab(type)
+    }
 
 
     return (
-        <div id='category' style={{marginTop:'-60px'}}>
-          
-            <div className=" category-section ">
-      <div className=" category-section d-flex justify-content-center h">
-        <NavLink  to='/home/breakfast'  activeClassName='cate' className="category-link" >
-          {" "}
-          Breakfast
-        </NavLink>
-        <NavLink to='/home/lunch' activeClassName='cate' className="category-link" >
-          {" "}
-          Lunch
-        </NavLink>
-        <NavLink to='/home/dinner' activeClassName='cate' className="category-link">
-          {" "}
-          Dinner
-        </NavLink>
-  
+      <section className="container" style={{marginTop:'-60px'}}>
+     
+      <div className="d-flex align-items-center justify-content-center  ">
+          <p className={menuTab === 'b' ? "active_menu_tab poppins  me-2" : "menu_tab poppins me-2"} onClick={() => handleMenuTabs('b')}>Breakfast</p>
+          <p className={menuTab === 'lunch' ? "active_menu_tab poppins  me-2" : "menu_tab poppins me-2"} onClick={() => handleMenuTabs('lunch')}>Lunch</p>
+          <p className={menuTab === 'd' ? "active_menu_tab poppins  me-2" : "menu_tab poppins me-2"} onClick={() => handleMenuTabs('d')}>Dinner</p>
       </div>
+
+
+      <div className="mapGrid">
+          {food.filter((item) => menuTab === item.c).map(item => <FoodCategory key={item.id} {...item} />
+          )}
       </div>
-        <div>
-            
-            <Switch>
-            <Route exact path={path}>
-          <Breakfast></Breakfast>
-        </Route>
-        <Route exact path='/home/breakfast'>
-          <Breakfast></Breakfast>
-        </Route>
-        <Route exact path='/home/lunch' >
-          <Lunch></Lunch>
-        </Route>
-        <Route exact path='/home/dinner' >
-          <Dinner></Dinner>
-        </Route>
-        </Switch>
-            
-           
-        </div>
-        </div>
+  </section>
     );
 };
 

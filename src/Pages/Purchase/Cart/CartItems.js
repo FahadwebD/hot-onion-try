@@ -49,7 +49,7 @@ const CartItems = ({data , info, handleRemove ,handle}) => {
      
     useEffect(()=>{
         addToDb(id,count)
-         handle({total , id})
+        
     },[count,total])
 
 

@@ -8,11 +8,14 @@ const useInfo =()=>{
 
 
     const [info, setInfo]= useState({})
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => setInfo(data);
+    const { register, handleSubmit , reset } = useForm();
+    const onSubmit = data =>{
+        setInfo(data);
+        reset()
+    }
 
  
-    return [info ,setInfo , register , handleSubmit , onSubmit]
+    return [info ,setInfo , register , handleSubmit , onSubmit , reset]
 
 }
 

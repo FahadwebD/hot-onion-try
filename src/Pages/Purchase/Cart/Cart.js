@@ -8,27 +8,16 @@ import Total from './Total';
 import { Link } from 'react-router-dom';
 
 const Cart = ({info}) => {
-   const [cartItem , setCartItem] = useState([])
+
    const [food] = useMeals()
    const [ carts , setCarts ] = useState([]);
-   const [t, setT]= useState([])
-    
    
    
-   useEffect(()=>{
-        const storedCart = getStoredCart();
-       
-        const savedCart =[]
-        for (const key in storedCart){
-          if(food.length){
-            const newP = food.find(service => service.id == key)
 
-            savedCart.push(newP)
-          }
-        
-        }
-         setCartItem(savedCart)
-      },[food])
+   console.log(carts)
+
+   
+
 
        
 
@@ -58,26 +47,23 @@ const Cart = ({info}) => {
     },[food])
 
     const handleRemove = id =>{
-        const newCart = cartItem.filter(product=> product.id !== id )
-         setCartItem(newCart)
+        const newCart = carts.filter(product=> product.id !== id )
+         setCarts(newCart)
          deleteFromDb(id)
      }
 
 
-     const handle= p =>{
-       setT(p)
-     }
-console.log(t)
+
     return (
         <div>
-            <h1>This {cartItem.length}</h1>
+            <p className='d-flex me-2' style={{fontSize:'20px' }}>Deliver To : <span style={{fontWeight:'bold'}}>{info.area}</span></p>
             <Row>
             {
-                cartItem.map(c=> <CartItems
+                carts.map(c=> <CartItems
                 data={c}
                 info={info}
                 handleRemove={handleRemove}
-                handle={handle}
+        
                 ></CartItems>)
             }
             </Row>

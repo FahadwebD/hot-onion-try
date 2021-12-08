@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Cart from '../Cart/Cart';
-import { set, useForm } from "react-hook-form";
+
 import Navs from '../../Shared/Navbar/Navs';
 import useInfo from '../../../hooks/useInfo';
 import BottomNav from '../../Shared/Navbar/BottomNav';
@@ -9,7 +9,7 @@ import BottomNav from '../../Shared/Navbar/BottomNav';
 const Purchase = () => {
   const [dis , setDis] = useState(false)
   console.log(dis)
-  const [info , setInfo , register, handleSubmit , onSubmit] = useInfo()
+  const [info , reset , register, handleSubmit , onSubmit] = useInfo()
 
 
   useEffect(() => {

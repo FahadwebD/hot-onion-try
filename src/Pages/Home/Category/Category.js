@@ -18,9 +18,9 @@ const [food] = useMeals()
       <section className="container" style={{marginTop:'-60px'}}>
      
       <div className="d-flex align-items-center justify-content-center  ">
-          <p className={menuTab === 'b' ? "active_menu_tab poppins  me-2" : "menu_tab poppins me-2"} onClick={() => handleMenuTabs('b')}>Breakfast</p>
-          <p className={menuTab === 'lunch' ? "active_menu_tab poppins  me-2" : "menu_tab poppins me-2"} onClick={() => handleMenuTabs('lunch')}>Lunch</p>
-          <p className={menuTab === 'd' ? "active_menu_tab poppins  me-2" : "menu_tab poppins me-2"} onClick={() => handleMenuTabs('d')}>Dinner</p>
+          <p className={menuTab === 'b' ? "active_menu_tab  me-2" : "menu_tab  me-2"} onClick={() => handleMenuTabs('b')}>Breakfast</p>
+          <p className={menuTab === 'lunch' ? "active_menu_tab   me-2" : "menu_tab  me-2"} onClick={() => handleMenuTabs('lunch')}>Lunch</p>
+          <p className={menuTab === 'd' ? "active_menu_tab  me-2" : "menu_tab  me-2"} onClick={() => handleMenuTabs('d')}>Dinner</p>
       </div>
 
 

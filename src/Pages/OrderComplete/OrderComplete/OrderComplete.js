@@ -12,7 +12,7 @@ const OrderComplete = () => {
   console.log(item)
   const [cartItem , setCartItem] = useState([])
   const [testing , setTesting] = useState({})
-
+ const [pay , setPay] = useState('Payment')
   const [food] = useMeals()
  console.log(cartItem)
   useEffect(()=>{
@@ -34,6 +34,7 @@ const OrderComplete = () => {
       }
     
     }
+
      setCartItem(savedCart)
   },[food])
 
@@ -54,20 +55,26 @@ const OrderComplete = () => {
   const overAll ={
    
     ...information,
-    cartItem,
-    
+    item,
+    pay,
     grandTotal
   }
   const clearAll=()=>{
     setTesting(overAll)
+    setPay('Paid')
+      localStorage.clear();
+    
+  }
+  const clearAll2=()=>{
+    setTesting(overAll)
+    setPay('Cash on Delivery')
       localStorage.clear();
     
   }
 
-
  
   console.log(testing)
-  const backendImport = overAll.cartItem
+  
     return (
         <div>
         {testing.cartItem?<div>
@@ -76,10 +83,11 @@ const OrderComplete = () => {
           }
          </div>:<div>
          {
-            backendImport.map(a => <OrderDetail data={a}
+            cartItem.map(a => <OrderDetail data={a}
             ></OrderDetail>)
           }
            <button onClick={clearAll}>Payment</button>
+           <button onClick={clearAll2}>Cash On Delivery</button>
          </div>}
         
             <div><h1>{information?.name}</h1></div>

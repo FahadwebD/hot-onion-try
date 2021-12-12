@@ -7,9 +7,10 @@ import useInfo from '../../../hooks/useInfo';
 import BottomNav from '../../Shared/Navbar/BottomNav';
 
 const Purchase = () => {
+  const [info ,  reset ,register, handleSubmit , onSubmit] = useInfo()
   const [dis , setDis] = useState(false)
   console.log(dis)
-  const [info , reset , register, handleSubmit , onSubmit] = useInfo()
+
 
 
   useEffect(() => {

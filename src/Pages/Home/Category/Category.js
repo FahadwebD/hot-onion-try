@@ -13,6 +13,7 @@ const [food] = useMeals()
         setMenuTab(type)
     }
 
+    console.log(menuTab)
 
     return (
       <section className="container" style={{marginTop:'-60px'}}>

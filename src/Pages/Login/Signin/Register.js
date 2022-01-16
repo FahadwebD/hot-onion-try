@@ -1,11 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import useAuth from '../../../hooks/useAuth';
 import bg from '../../../images/bannerbackground-removebg.png';
 import icon from '../../../images/logo2.png'
 
 
 const Register = () => {
+
+  const [loginData, setLoginData] = useState({});
+  const history = useHistory()
+  
+  const {registerUser , isLoading , user , authError} = useAuth();
+
+  const handleOnChange = e => {
+      const field = e.target.name;
+      const value = e.target.value;
+      const newLoginData = { ...loginData };
+      newLoginData[field] = value;
+     
+      setLoginData(newLoginData);
+ 
+  }
+
+  const handleLoginSubmit = e => {
+     
+     registerUser(loginData.email , loginData.password , loginData.name, history)
+      e.preventDefault();
+  }
     return (
         <div style={{backgroundImage: `url(${bg})`, backgroundPosition: 'center',
         backgroundSize: 'cover',
@@ -23,10 +46,10 @@ const Register = () => {
     </div>
 
   
-    <form  >
-    <input  type="text" id="login" className="fadeIn second" name="login" placeholder="name"/>
-      <input  type="text" id="login" className="fadeIn second" name="login" placeholder="email"/>
-      <input type="password" id="login" className="fadeIn third" name="login" placeholder="password"/>
+    <form  type='submit'  onSubmit={handleLoginSubmit}>
+    <input  name="name" type="text"  className="fadeIn second" placeholder="name" onBlur={handleOnChange}/>
+      <input  name="email" type="email" id="login" className="fadeIn second"   placeholder="email"onBlur={handleOnChange}/>
+      <input  name="password" type="password"  className="fadeIn third" placeholder="password" onBlur={handleOnChange}/>
       <input  type="submit" className="fadeIn fourth" id='bt' value="Log In"/>
      
     </form>

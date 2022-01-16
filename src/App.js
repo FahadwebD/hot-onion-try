@@ -8,11 +8,13 @@ import Register from './Pages/Login/Signin/Register';
 import Category from './Pages/Home/Category/Category';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
 import OrderComplete from './Pages/OrderComplete/OrderComplete/OrderComplete';
+import AuthProvider from './context/AuthProvider/AuthProvider';
 
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
       <Switch>
         <Route exact path='/'>
@@ -46,6 +48,7 @@ function App() {
         </Route>
       </Switch>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

@@ -6,10 +6,11 @@ import useMeals from '../../../hooks/useMeals';
 import BottomNav from '../../Shared/Navbar/BottomNav';
 import Navs from '../../Shared/Navbar/Navs';
 import OrderDetail from '../OrderDetail/OrderDetail';
-import UserOrder from '../UserOrder/UserOrder';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCheck} from '@fortawesome/free-solid-svg-icons'
 import './Order.css'
 const OrderComplete = () => {
-
+    const elementCheck = <FontAwesomeIcon icon={faCheck}/>
     const information =(JSON.parse(localStorage.getItem('info')))
     const item =(JSON.parse(localStorage.getItem('shopping_cart')))
   console.log(information)
@@ -119,7 +120,7 @@ const OrderComplete = () => {
             <div class="col-md-6 mx-auto mt-5">
                <div class="payment">
                   <div class="payment_header">
-                     <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
+                     <div class="check"><i class="fa fa-check" aria-hidden="true">{elementCheck}</i></div>
                   </div>
                   <div class="content">
                      <h1>Order Success !</h1>

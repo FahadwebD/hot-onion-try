@@ -13,6 +13,7 @@ import './Details.css'
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Navs from '../Shared/Navbar/Navs';
 import BottomNav from '../Shared/Navbar/BottomNav';
+import useAuth from '../../hooks/useAuth';
 SwiperCore.use([Navigation]);
 
 const Details = () => {
@@ -24,7 +25,7 @@ const Details = () => {
     const [b, setB] = useState(false)
     const {name , price , description , image, id} = detail;
    
-
+  const {user} = useAuth()
    
 
 
@@ -49,7 +50,7 @@ useEffect(()=>{
   const addToCart =()=>{
     let  total = price*count
     console.log(total)
-  addToDb(id,count)
+  addToDb(id,count , user)
   
   }
 

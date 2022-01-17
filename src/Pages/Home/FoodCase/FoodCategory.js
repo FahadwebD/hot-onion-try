@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'animate.css';
 import { Link } from 'react-router-dom';
 
 const FoodCategory = ({name , price ,image , description,id}) => {
@@ -8,7 +8,7 @@ const FoodCategory = ({name , price ,image , description,id}) => {
 
    const url = `/details/${id}`
 return (
-    <div>
+    <div className='animate__animated animate__backInRight'>
         <Link to={url} style={{ textDecoration: 'none'}}>
         <div className="cards p-1">
         <div className="card-content">

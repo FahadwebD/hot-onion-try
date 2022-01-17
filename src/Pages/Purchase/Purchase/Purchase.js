@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Cart from '../Cart/Cart';
-
+import 'animate.css';
 import Navs from '../../Shared/Navbar/Navs';
 import useInfo from '../../../hooks/useInfo';
 import BottomNav from '../../Shared/Navbar/BottomNav';
@@ -30,9 +30,9 @@ console.log(user.displayName)
             
             
 
-            <Container>
+            <Container >
   <Row>
-    <Col style={{backgroundColor:'white' , paddingTop:'20px' , marginTop:'40px' , marginRight:'300px'}} lg={4 ,{order:'1'}} xs={4 ,{order:'2'}} md={4} > <div>
+    <Col className='animate__animated animate__fadeInTopLeft' style={{backgroundColor:'white' , paddingTop:'20px' , marginTop:'40px' , marginRight:'300px'}} lg={4 ,{order:'1'}} xs={4 ,{order:'2'}} md={4} > <div>
       <h4 >Edit You Details</h4>
       <hr/>
             <form onSubmit={handleSubmit(onSubmit)}>

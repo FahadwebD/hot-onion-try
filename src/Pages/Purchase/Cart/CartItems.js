@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col } from 'react-bootstrap';
 import { addToDb,  getStoredCart } from '../../../utilities/fakedb';
+import 'animate.css';
 import './Cart.css'
 const CartItems = ({data , info, handleRemove ,handle}) => {
    
@@ -55,7 +56,7 @@ const CartItems = ({data , info, handleRemove ,handle}) => {
 
 
     return (
-        <div style={{backgroundColor:'whitesmoke' , borderRadius:'15px' , padding:'10px'}} className='d-flex justify-content-center align-items-center mb-1  '> 
+        <div  style={{backgroundColor:'whitesmoke' , borderRadius:'15px' , padding:'10px'}} className='animate__animated animate__flipInX d-flex justify-content-center align-items-center mb-1  '> 
            <Col xs={4} md={4}>
                 <img  style={{height:'80px' , width:'80px'}} src={image} alt="" srcset="" />
                 </Col>

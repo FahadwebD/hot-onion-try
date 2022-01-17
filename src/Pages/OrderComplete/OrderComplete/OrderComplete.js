@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
 import useInfo from '../../../hooks/useInfo';
 import useMeals from '../../../hooks/useMeals';
+import BottomNav from '../../Shared/Navbar/BottomNav';
+import Navs from '../../Shared/Navbar/Navs';
 import OrderDetail from '../OrderDetail/OrderDetail';
 import UserOrder from '../UserOrder/UserOrder';
 
@@ -11,7 +14,7 @@ const OrderComplete = () => {
   console.log(information)
   console.log(item)
   const [cartItem , setCartItem] = useState([])
-  const [testing , setTesting] = useState({})
+ 
  const [pay , setPay] = useState('Payment')
   const [food] = useMeals()
  console.log(cartItem)
@@ -60,13 +63,13 @@ const OrderComplete = () => {
     grandTotal
   }
   const clearAll=()=>{
-    setTesting(overAll)
+   
     setPay('Paid')
       localStorage.clear();
     
   }
   const clearAll2=()=>{
-    setTesting(overAll)
+   
     setPay('Cash on Delivery')
       localStorage.clear();
     
@@ -76,23 +79,39 @@ const OrderComplete = () => {
   console.log(overAll)
   
     return (
-        <div>
-        {testing.cartItem?<div>
-         {
-            <UserOrder></UserOrder>
-          }
-         </div>:<div>
-         {
-            cartItem.map(a => <OrderDetail data={a}
+      <>
+      <div className='WebsiteNav' >
+        <Navs></Navs>
+      </div>
+
+        <div className='d-flex  flex-row align-items-center justify-content-between '>
+
+       <div className='w-50'>
+           {cartItem.map(a => <OrderDetail data={a}
             ></OrderDetail>)
-          }
-           <button onClick={clearAll}>Payment</button>
-           <button onClick={clearAll2}>Cash On Delivery</button>
-         </div>}
+          
+          } 
+         </div>
         
-            <div><h1>{information?.name}</h1></div>
+            
            
-        </div>
+        
+        <div className='p-4' >
+          <div>
+            <p> total:{grandTotal}</p>
+          </div>
+          <div><select class="form-select" aria-label="Default select example">
+  <option setPay='Cash On Delivery' selected>Cash On Delivery</option>
+  <option setPay='Cash On Delivery' >Cash On Delivery</option>
+  
+  
+</select><div><button>Order Complete</button></div></div>
+           
+           </div>
+           </div>
+           
+         <div className='mobileNav'><BottomNav></BottomNav></div>
+        </>
     );
 };
 

@@ -73,7 +73,7 @@ const OrderComplete = () => {
   }
 
  
-  console.log(testing)
+  console.log(overAll)
   
     return (
         <div>

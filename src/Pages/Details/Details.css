@@ -78,7 +78,9 @@
     .WebsiteNav{
       visibility: hidden;
     }
-    
+    .displa-hide{
+      display: none;
+    }
 }
 @media only screen  and (min-width:689px) and (max-width:990px){
    

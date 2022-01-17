@@ -116,20 +116,20 @@ useEffect(()=>{
 
 
       
-        <div style={{width:'80%' , marginTop:'20px'}}> 
+        <div style={{width:'80%' , marginTop:'10px'}}> 
         <Swiper
-      spaceBetween={5}
+      spaceBetween={50}
       slidesPerView={2}
      
       navigation
       breakpoints={{
         // when window width is >= 640px
         640: {
-          slidesPerView: 2,
+          slidesPerView: 1,
         },
         // when window width is >= 768px
         768: {
-          slidesPerView: 2,
+          slidesPerView: 1,
         },
         // when window width is >= 1200px
         1200: {
@@ -153,7 +153,7 @@ useEffect(()=>{
 
     
     </Col>
-    <Col lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'80%' , width:'100%' , padding:'5px'}}  src={image} alt='' /></Col>
+    <Col className='displa-hide' lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'80%' , width:'100%' , padding:'5px'}}  src={image} alt='' /></Col>
   </Row>
             </Container>
         </div>

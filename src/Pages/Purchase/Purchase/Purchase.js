@@ -5,6 +5,7 @@ import Cart from '../Cart/Cart';
 import Navs from '../../Shared/Navbar/Navs';
 import useInfo from '../../../hooks/useInfo';
 import BottomNav from '../../Shared/Navbar/BottomNav';
+import useAuth from '../../../hooks/useAuth';
 
 const Purchase = () => {
   const [info ,  reset ,register, handleSubmit , onSubmit] = useInfo()
@@ -12,7 +13,8 @@ const Purchase = () => {
   console.log(dis)
 
 
-
+const {user} = useAuth();
+console.log(user.displayName)
   useEffect(() => {
     // storing input name
     localStorage.setItem("info", JSON.stringify(info));
@@ -34,7 +36,7 @@ const Purchase = () => {
       <h4 >Edit You Details</h4>
       <hr/>
             <form onSubmit={handleSubmit(onSubmit)}>
-      <input style={{width:'100%', backgroundColor:'whitesmoke' , border:'none' , padding:'10px' , marginBottom:'20px'}} {...register("name", { required: true, maxLength: 20 })} placeholder='name'/>
+      <input style={{width:'100%', backgroundColor:'whitesmoke' , border:'none' , padding:'10px' , marginBottom:'20px'}} {...register("name", { required: true, maxLength: 20 })} defaultValue={user.displayName} readonly="readonly"/>
       <input style={{width:'100%', backgroundColor:'whitesmoke' , border:'none' , padding:'10px' , marginBottom:'20px'}} {...register("roadNo", {required: true, })} placeholder='road' />
       <input style={{width:'100%', backgroundColor:'whitesmoke' , border:'none' , padding:'10px' , marginBottom:'20px'}} {...register("area", {required: true, })} placeholder='flat, suit or floor' />
       <input style={{width:'100%', backgroundColor:'whitesmoke' , border:'none' , padding:'10px' , marginBottom:'20px'}} {...register("mobile", {required: true, })} placeholder='mobile number'/>

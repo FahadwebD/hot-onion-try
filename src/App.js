@@ -9,6 +9,7 @@ import Category from './Pages/Home/Category/Category';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
 import OrderComplete from './Pages/OrderComplete/OrderComplete/OrderComplete';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -34,12 +35,12 @@ function App() {
         <Route exact path='/details/:mealsId'>
           <Details></Details>
         </Route>
-        <Route exact path='/purchase'>
+        <PrivateRoute exact path='/purchase'>
           <Purchase></Purchase>
-          </Route>
-          <Route exact path='/order'>
+          </PrivateRoute>
+          <PrivateRoute exact path='/order'>
           <OrderComplete></OrderComplete>
-          </Route>
+          </PrivateRoute>
         <Route exact path='/login'>
           <Login></Login>
         </Route>

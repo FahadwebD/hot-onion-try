@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useInfo from '../../../hooks/useInfo';
 import useMeals from '../../../hooks/useMeals';
 import BottomNav from '../../Shared/Navbar/BottomNav';
 import Navs from '../../Shared/Navbar/Navs';
 import OrderDetail from '../OrderDetail/OrderDetail';
 import UserOrder from '../UserOrder/UserOrder';
-
+import './Order.css'
 const OrderComplete = () => {
 
     const information =(JSON.parse(localStorage.getItem('info')))
@@ -80,11 +81,13 @@ const OrderComplete = () => {
   
     return (
       <>
-      <div className='WebsiteNav' >
+       <div>
+       {information?<div>
+        <div className='WebsiteNav' >
         <Navs></Navs>
       </div>
 
-        <div className='d-flex  flex-row align-items-center justify-content-between '>
+        <div className='d-flex  flex-row align-items-center justify-content-around '>
 
        <div className='w-50'>
            {cartItem.map(a => <OrderDetail data={a}
@@ -96,21 +99,39 @@ const OrderComplete = () => {
             
            
         
-        <div className='p-4' >
+        <div className='p-4 bg-light me-2' >
           <div>
             <p> total:{grandTotal}</p>
           </div>
-          <div><select class="form-select" aria-label="Default select example">
+          <div className='p-3'><select className='mb-2' class="form-select" aria-label="Default select example">
   <option setPay='Cash On Delivery' selected>Cash On Delivery</option>
   <option setPay='Cash On Delivery' >Cash On Delivery</option>
   
   
-</select><div><button>Order Complete</button></div></div>
+</select><div><button onClick={clearAll} style={{backgroundColor:'#f91944' , border:'none' , padding:'10px 20px 10px 20px', borderRadius:'20px' , color:'white', fontWeight:'bold'}}>Order Complete</button></div></div>
            
            </div>
            </div>
            
          <div className='mobileNav'><BottomNav></BottomNav></div>
+       </div>:<div class="container">
+         <div class="row">
+            <div class="col-md-6 mx-auto mt-5">
+               <div class="payment">
+                  <div class="payment_header">
+                     <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
+                  </div>
+                  <div class="content">
+                     <h1>Order Success !</h1>
+                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </p>
+                     <Link to='/'>Go to Home</Link>
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+      </div>}
+       </div>
         </>
     );
 };

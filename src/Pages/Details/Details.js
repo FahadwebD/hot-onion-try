@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useMeals from '../../hooks/useMeals';
@@ -14,6 +14,7 @@ import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Navs from '../Shared/Navbar/Navs';
 import BottomNav from '../Shared/Navbar/BottomNav';
 import useAuth from '../../hooks/useAuth';
+import CartContext from '../../context/cart/CartContext';
 SwiperCore.use([Navigation]);
 
 const Details = () => {
@@ -22,15 +23,16 @@ const Details = () => {
     const {mealsId} = useParams();
     const [food] = useMeals();
     const [detail , setDetail] = useState({});
+    const [updateDetail , setUpdateDetail] = useState({});
     const [b, setB] = useState(false)
     const {name , price , description , image, id} = detail;
-   
+     
   const {user} = useAuth()
    
-
+  const { addToCart } = useContext(CartContext);
 
     
-
+console.log(addToCart)
 
 
 useEffect(()=>{
@@ -47,7 +49,7 @@ useEffect(()=>{
 },[mealsId])
 
 
-  const addToCart =()=>{
+  const addToCarts =()=>{
     let  total = price*count
     console.log(total)
   addToDb(id,count , user)
@@ -58,12 +60,22 @@ useEffect(()=>{
 
    const increase = ()=>{
        setCount(count+1)
-       
+       const update ={
+          count,
+          detail
+       }
+       setUpdateDetail(update)
    }
    const decrease =()=>{
        if(count>1){
            setCount(count-1)
+           const update ={
+            count,
+            detail
+         }
+         setUpdateDetail(update)
        }
+
    }
     
     useEffect(()=>{
@@ -82,7 +94,7 @@ useEffect(()=>{
         <div >
             <Container>
             <Row className=' order'>
-    <Col lg={6 ,{order:'1'}} xs={12 , {order:'2'}} md={6} >
+    <Col lg={6} xs={12} md={6} >
 
 
 
@@ -107,7 +119,7 @@ useEffect(()=>{
        <div className='mt-5'>
         {b==true?<button onClick={addToCart} disabled style={{backgroundColor:'#fc8ca2',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' , marginBottom:'70px' }}>
       {element}<span style={{marginLeft:'10px'}}>Added</span>
-    </button>:<button onClick={addToCart} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' , marginBottom:'70px' , marginTop:'-180px'}}>
+    </button>:<button onClick={() => addToCart({detail , count})} style={{backgroundColor:'#f91944',border:'none' , borderRadius: '20px 20px 20px 20px' , padding:'10px 50px', color:'white' , marginBottom:'70px' , marginTop:'-180px'}}>
       {element}<span style={{marginLeft:'10px'}}>add</span>
     </button>}
         </div>
@@ -154,7 +166,7 @@ useEffect(()=>{
 
     
     </Col>
-    <Col className='displa-hide' lg={6 ,{order:'2'}} xs={12 ,{order:'1'}} md={6} ><img style={{height:'80%' , width:'100%' , padding:'5px'}}  src={image} alt='' /></Col>
+    <Col className='displa-hide' lg={6} xs={12} md={6} ><img style={{height:'80%' , width:'100%' , padding:'5px'}}  src={image} alt='' /></Col>
   </Row>
             </Container>
         </div>

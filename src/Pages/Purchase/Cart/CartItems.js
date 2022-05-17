@@ -5,8 +5,8 @@ import 'animate.css';
 import './Cart.css'
 const CartItems = ({data , info, handleRemove ,handle}) => {
    
-    const {name , image , price , id } = data
-    const [count , setCount] = useState(1)
+    const {name , image , price , id } = data.detail
+    const [count , setCount] = useState(data.count)
 
 
     useEffect(()=>{
@@ -30,7 +30,7 @@ const CartItems = ({data , info, handleRemove ,handle}) => {
       const increase = ()=>{
         setCount(count+1)
     
-            window.location.reload();
+            
          
     }
     const decrease =(id)=>{
@@ -43,7 +43,7 @@ const CartItems = ({data , info, handleRemove ,handle}) => {
         else{
             handleRemove(id)
         }
-        window.location.reload();
+        
     }
     
    
@@ -54,7 +54,7 @@ const CartItems = ({data , info, handleRemove ,handle}) => {
     },[count,total])
 
 
-
+console.log(count)
     return (
         <div  style={{backgroundColor:'whitesmoke' , borderRadius:'15px' , padding:'10px'}} className='animate__animated animate__flipInX d-flex justify-content-center align-items-center mb-1  '> 
            <Col xs={4} md={4}>

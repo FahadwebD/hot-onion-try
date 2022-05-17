@@ -67,6 +67,10 @@ const Login = () => {
     <div className='mb-2'>
       <Button onClick={handleGoogleSignin} className=' fadeIn fourth' id='bt'  >Google</Button>
       </div>
+      <div id="formFooter">
+          <Link to="/reset">Forgot Password</Link>
+        </div>
+
     <div id="formFooter">
       <Link style={{textDecoration:'none' , color:'black'}} className="underlineHover" to="/register">Don't Have An Account?</Link>
     </div>

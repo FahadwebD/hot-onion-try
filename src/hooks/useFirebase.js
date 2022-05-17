@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init"
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged ,signOut,updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged ,signOut,updateProfile, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 
 
 initializeFirebase();
@@ -79,7 +79,15 @@ const useFirebase = () =>{
     return () => unsubscribed;
 }, [])
 
-
+const sendPasswordReset = async (email) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    alert("Password reset link sent!");
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
     // const saveUser = (email, displayName) =>{
 
     //   const user ={email,displayName}
@@ -123,7 +131,8 @@ const useFirebase = () =>{
         logout,
         deliveryReport,
         setDeliveryReport,
-        signInUsingGoogle 
+        signInUsingGoogle ,
+        sendPasswordReset
     }
 }
 

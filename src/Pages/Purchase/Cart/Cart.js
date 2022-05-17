@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useMeals from '../../../hooks/useMeals';
 import { deleteFromDb, getStoredCart } from '../../../utilities/fakedb';
 import CartItems from './CartItems';
@@ -6,13 +6,14 @@ import './Cart.css'
 import { Row } from 'react-bootstrap';
 import Total from './Total';
 import { Link } from 'react-router-dom';
+import CartContext from '../../../context/cart/CartContext';
 
 const Cart = ({info}) => {
 
    const [food] = useMeals()
    const [ carts , setCarts ] = useState([]);
-   
-   
+   const { showCart, cartItems, showHideCart } = useContext(CartContext);
+   console.log(cartItems)
 
    console.log(carts)
 
@@ -47,7 +48,7 @@ const Cart = ({info}) => {
     },[food])
 
     const handleRemove = id =>{
-        const newCart = carts.filter(product=> product.id !== id )
+        const newCart = cartItems.filter(product=> product.id !== id )
          setCarts(newCart)
          deleteFromDb(id)
      }
@@ -59,7 +60,7 @@ const Cart = ({info}) => {
             <p className='d-flex me-2' style={{fontSize:'20px' }}>Deliver To : <span style={{fontWeight:'bold'}}>{info.area}</span></p>
             <Row>
             {
-                carts.map(c=> <CartItems
+                cartItems.map(c=> <CartItems
                 data={c}
                 info={info}
                 handleRemove={handleRemove}
@@ -69,7 +70,9 @@ const Cart = ({info}) => {
             </Row>
             {
                 <Total cart={carts}
-                
+                        cartItems={cartItems}
+                      
+                        showCart={showCart}
                         info={info}
 
                 ></Total>
